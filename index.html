@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <title>ඩිජිටල් වෙසක් කලාපය - 2026 | Digital Vesak Zone - 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="description" content="ඩිජිටල් වෙසක් කලාපය 2026 — භාග්‍යවතුන් වහන්සේගේ උතුම් ජීවිතය ඩිජිටල් ලෝකයට" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Noto+Serif+Sinhala:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ─────────── GLOBAL BACKGROUNDS ─────────── -->
+<canvas id="particle-canvas"></canvas>
+<div class="bg-gradient-overlay"></div>
+
+<!-- ─────────── AUDIO WIDGET ─────────── -->
+<div class="audio-widget" id="audio-widget">
+  <div class="audio-ring"></div>
+  <button class="audio-widget-btn" id="audio-toggle" title="Toggle music">
+    <svg id="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+    <svg id="icon-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
+  <div class="audio-label" id="audio-label">සංගීතය</div>
+</div>
+
+<!-- ─────────── APP WRAPPER ─────────── -->
+<div class="app" id="app">
+
+  <!-- Global Thorana Stage -->
+  <div class="thorana-stage" id="thorana-stage">
+    
+    <!-- Pinnacle (Koth-wahanse) -->
+    <div class="thorana-pinnacle"></div>
+    
+    <!-- Main Arch Structure -->
+    <div class="thorana-arch">
+      <!-- Curved Top -->
+      <div class="thorana-arch-top">
+        <div class="arch-bulbs-outer" data-bulbs-curve="36" data-radius="260" data-start-angle="180" data-end-angle="360"></div>
+        <div class="arch-bulbs-inner" data-bulbs-curve="24" data-radius="220" data-start-angle="180" data-end-angle="360"></div>
+      </div>
+      
+      <!-- Side Pillars -->
+      <div class="thorana-pillar thorana-pillar--left">
+        <div class="pillar-bulbs" data-bulbs-line="10" data-direction="vertical"></div>
+      </div>
+      <div class="thorana-pillar thorana-pillar--right">
+        <div class="pillar-bulbs" data-bulbs-line="10" data-direction="vertical"></div>
+      </div>
+    </div>
+    
+    <!-- Buddha Section (Center-Top) -->
+    <div class="thorana-buddha-section">
+      <div class="ransilu-halo">
+        <div class="ransilu-ring"></div>
+        <div class="ransilu-ring-inner"></div>
+        <div class="ransilu-glow"></div>
+      </div>
+      <img src="assets/BuddhaRupa2.png" alt="Buddha" class="thorana-buddha-img" />
+    </div>
+    
+    <!-- Narrative Panels -->
+    <div class="thorana-panels-container">
+      
+      <!-- Panel 1: Birth -->
+      <div class="thorana-panel" id="button1" data-target="screen2">
+        <div class="panel-bulbs" data-bulbs="20" data-radius="85"></div>
+        <div class="panel-frame-wrap">
+          <img src="assets/frame_3.gif" alt="" class="panel-frame-img" aria-hidden="true" />
+          <div class="panel-img-clip">
+            <img src="assets/birthOfBuddha250x300.png" alt="Birth" class="panel-img" />
+          </div>
+        </div>
+        <div class="panel-tag">01</div>
+        <div class="panel-title">සිදුහත් උපත</div>
+      </div>
+
+      <!-- Panel 2: Enlightenment -->
+      <div class="thorana-panel thorana-panel--featured" id="button2" data-target="screen3">
+        <div class="panel-bulbs" data-bulbs="24" data-radius="100"></div>
+        <div class="panel-frame-wrap">
+          <img src="assets/frame_3.gif" alt="" class="panel-frame-img" aria-hidden="true" />
+          <div class="panel-img-clip">
+            <img src="assets/BuddhaRupa2.png" alt="Enlightenment" class="panel-img" />
+          </div>
+        </div>
+        <div class="panel-tag">02</div>
+        <div class="panel-title">සම්බුද්ධත්වයට පත්වීම</div>
+      </div>
+
+      <!-- Panel 3: Parinirvana -->
+      <div class="thorana-panel" id="button3" data-target="screen4">
+        <div class="panel-bulbs" data-bulbs="20" data-radius="85"></div>
+        <div class="panel-frame-wrap">
+          <img src="assets/frame_2.gif" alt="" class="panel-frame-img" aria-hidden="true" />
+          <div class="panel-img-clip">
+            <img src="assets/piriniwanOfBuddha250x300.png" alt="Parinirvana" class="panel-img" />
+          </div>
+        </div>
+        <div class="panel-tag">03</div>
+        <div class="panel-title">මහා පිරිනිවීම</div>
+      </div>
+
+    </div><!-- /panels -->
+    
+    <!-- Thorana Pedestal (Base) -->
+    <div class="thorana-pedestal">
+      <!-- Decorative patterns -->
+      <div class="pedestal-deco">
+        <img src="assets/styleAll.gif" alt="" class="pedestal-gif" aria-hidden="true" />
+      </div>
+      <!-- Blinking base bulbs -->
+      <div class="pedestal-bulbs" data-bulbs-line="18" data-direction="horizontal"></div>
+    </div>
+    
+  </div><!-- /thorana-stage -->
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  SCREEN 1 — LANDING                    -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="screen screen--landing active" id="screen-landing" data-screen="landing">
+    <!-- Floating lanterns layer -->
+    <div class="lanterns" id="lanterns-layer"></div>
+
+    <!-- Hero content -->
+    <div class="landing-hero">
+      <!-- Flag row -->
+      <div class="flag-row">
+        <img src="assets/buddhist-flag-xxl-anim.gif" alt="Buddhist Flag" class="hero-flag" />
+      </div>
+
+      <!-- Decorative diya lamps -->
+      <div class="deco-lamps">
+        <img src="assets/style02.gif"  alt="" class="deco-lamp deco-lamp--left"  aria-hidden="true" />
+        <img src="assets/style05.gif"  alt="" class="deco-lamp deco-lamp--right" aria-hidden="true" />
+      </div>
+
+      <!-- Titles -->
+      <div class="hero-text-block">
+        <p class="hero-en-label">Digital Vesak Zone</p>
+        <h1 class="hero-title">ඩිජිටල් වෙසක් කලාපය</h1>
+        <p class="hero-subtitle">බෝසතාණන් වහන්සේගේ උපත, බුද්ධත්වයට පත්වීම හා භාග්‍යවතුන් වහන්සේගේ පරිණිර්වාණය</p>
+        <div class="hero-year-pill">2026</div>
+      </div>
+
+      <!-- Creator card -->
+      <div class="creator-card">
+        <div class="creator-icon">©</div>
+        <div class="creator-info">
+          <span class="creator-role">නිර්මාණය හා ඉදිරිපත් කිරීම</span>
+          <span class="creator-name">එච්.එම්.අශාන් ජනිත් දිල්ෂාන් සේනාධීර</span>
+          <span class="creator-name">මෘදුකාංග ඉංජිනේරු</span>
+          <span class="creator-email">hmajdslk@gmail.com</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <button class="cta-btn" id="landing_btn">
+        <span class="cta-btn__text">ඇතුල් වන්න</span>
+        <span class="cta-btn__arrow">→</span>
+        <span class="cta-btn__ripple"></span>
+      </button>
+    </div>
+
+    <!-- Bottom scroll hint -->
+    <div class="scroll-hint">
+      <div class="scroll-hint__dot"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  SCREEN 2 — DASHBOARD                  -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="screen screen--dashboard" id="screen-dashboard" data-screen="startscreen">
+    <!-- Sticky top nav bar -->
+    <nav class="top-nav">
+      <div class="top-nav__logo">
+        <img src="assets/buddhist-flag-xxl-anim.gif" alt="Flag" class="nav-flag" />
+        <span class="nav-title">වෙසක් කලාපය</span>
+      </div>
+      <div class="nav-spacer"></div>
+    </nav>
+
+    <!-- Dashboard hero heading -->
+    <header class="dash-header">
+      <div class="dash-header__deco">✦ ✦ ✦</div>
+      <h2 class="dash-title">උතුම් තෙමඟුල</h2>
+      <div class="title-underline"></div>
+    </header>
+
+
+
+    <!-- Bottom decorative band -->
+    <footer class="dash-footer">
+      <img src="assets/styleAll.gif" alt="" class="footer-deco-gif" aria-hidden="true" />
+    </footer>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  SCREEN 3 — BIRTH DETAIL               -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="screen screen--detail" id="screen2" data-screen="screen2">
+    <div class="detail-bg detail-bg--birth"></div>
+    <div class="detail-layout">
+
+      <!-- Left: transparent space for Thorana view -->
+      <div class="detail-visual detail-visual--spacer"></div>
+
+      <!-- Right: content -->
+      <div class="detail-content">
+        <div class="detail-chapter">
+          <span class="chapter-num">01</span>
+          <span class="chapter-line"></span>
+          <span class="chapter-label">ප්‍රථම සිද්ධිය</span>
+        </div>
+        <h2 class="detail-title">සිද්ධාර්ථ කුමාරෝත්පත්තිය</h2>
+        <div class="detail-divider">
+          <span class="divider-icon">☸</span>
+        </div>
+        <p class="detail-text">
+          ලොවටම සෙත් හා සැනසුම ගෙනෙමින්, ශාක්‍ය රාජ සිංහාසනයේ රාජ කුමාරෙකු ලෙස ජාතක ලාභී වූ සිදුහත් කුමාරතෙමේ ලුම්බිණිය සල් උයනෙදී එදා අශෝක රෝද රුකෙකා රිසි ලෙස අල්ල ගත් ශ්‍රීමත් මහාමායා දේවිය කුසින් ශෝභාමාන ලෙස ලෝකයා දෙස බලා ඉපදුනු සේක.
+        </p>
+        <div class="detail-facts">
+          <div class="fact-item">
+            <span class="fact-icon">📍</span>
+            <div><span class="fact-label">ස්ථානය</span><span class="fact-value">ලුම්බිණිය</span></div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">👸</span>
+            <div><span class="fact-label">මව</span><span class="fact-value">මහාමායා දේවිය</span></div>
+          </div>
+        </div>
+        <!-- Navigation -->
+        <nav class="detail-nav">
+          <button class="detail-nav__btn active" id="button7">
+            <span class="nav-dot"></span> උප්පත්තිය
+          </button>
+          <button class="detail-nav__btn" id="button8">
+            <span class="nav-dot"></span> බුදුවීම
+          </button>
+          <button class="detail-nav__btn" id="button9">
+            <span class="nav-dot"></span> පිරිනිවීම
+          </button>
+          <button class="detail-nav__home" id="button16">
+            ← මුල් පිටු
+          </button>
+        </nav>
+      </div>
+
+    </div><!-- /detail-layout -->
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  SCREEN 4 — ENLIGHTENMENT DETAIL       -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="screen screen--detail" id="screen3" data-screen="screen3">
+    <div class="detail-bg detail-bg--enlighten"></div>
+    <div class="detail-layout">
+
+      <div class="detail-visual detail-visual--spacer"></div>
+
+      <div class="detail-content">
+        <div class="detail-chapter">
+          <span class="chapter-num">02</span>
+          <span class="chapter-line"></span>
+          <span class="chapter-label">ද්විතීය සිද්ධිය</span>
+        </div>
+        <h2 class="detail-title">උතුම් සම්මා සම්බුද්ධත්වය</h2>
+        <div class="detail-divider">
+          <span class="divider-icon">☸</span>
+        </div>
+        <p class="detail-text">
+          බුද්ධගයාවේ ඇසතු බෝ රුකක් යට සිය ජීවිතය ගෙවූ ආදිත්‍ය රශ්මිය හා ශීතල සිය මදිය දෙසෙහිම ලෝකෝත්තර ඥාන රශ්මිය ලබා, සිය සිත් ගිනි ගත් මාරයා පරාජය කොට, සිය ඇසිල්ල ගලා ගිය කෙලෙස් නසා, ලොවට ශ්‍රේෂ්ඨ වූ සම්බුද්ධ ඥාන රශ්මිය ලැබ ලෝවැඩ සිනාඉක පාර ෙනෑ.
+        </p>
+        <div class="detail-facts">
+          <div class="fact-item">
+            <span class="fact-icon">📍</span>
+            <div><span class="fact-label">ස්ථානය</span><span class="fact-value">බුද්ධගයාව</span></div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🌳</span>
+            <div><span class="fact-label">රුක</span><span class="fact-value">ශ්‍රී මහා බෝ රුක</span></div>
+          </div>
+        </div>
+        <nav class="detail-nav">
+          <button class="detail-nav__btn" id="button10">
+            <span class="nav-dot"></span> උප්පත්තිය
+          </button>
+          <button class="detail-nav__btn active" id="button11">
+            <span class="nav-dot"></span> බුදුවීම
+          </button>
+          <button class="detail-nav__btn" id="button12">
+            <span class="nav-dot"></span> පිරිනිවීම
+          </button>
+          <button class="detail-nav__home" id="button17">
+            ← මුල් පිටු
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--  SCREEN 5 — PARINIRVANA DETAIL         -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="screen screen--detail" id="screen4" data-screen="screen4">
+    <div class="detail-bg detail-bg--parinirvana"></div>
+    <div class="detail-layout">
+
+      <div class="detail-visual detail-visual--spacer"></div>
+
+      <div class="detail-content">
+        <div class="detail-chapter">
+          <span class="chapter-num">03</span>
+          <span class="chapter-line"></span>
+          <span class="chapter-label">තෘතීය සිද්ධිය</span>
+        </div>
+        <h2 class="detail-title">මහා පරිනිර්වාණය</h2>
+        <div class="detail-divider">
+          <span class="divider-icon">☸</span>
+        </div>
+        <p class="detail-text">
+          කුසිනාරා නුවර මල්ල රජදරුවන්ගේ උපවත්තන සල් උයනෙදී, සල් ගස් දෙකක් අතර සාදාගත් ශේෂ සිවිරෙකෙදී, ස්ව-ස්කාරී රාජ සිරුරු, ලොව ශ්‍රේෂ්ඨ ධර්ම ශාසනය ඔහු ඉදිරියෙහිම ගෙනෙමින් සිය මහා ශ්‍රාවකයන් ලා, "ශ්‍රී වැඩ ධර්මමෙහි ශ්‍රේෂ්ඨ ලෙස ගමන් කරව!" ලෙස ශ්‍රේෂ්ඨ වූ අනුශාසනාව ලබාදී, ලෝකෝත්තර මහා නිවන් රශ්මිය ලැබූ සේක.
+        </p>
+        <div class="detail-facts">
+          <div class="fact-item">
+            <span class="fact-icon">📍</span>
+            <div><span class="fact-label">ස්ථානය</span><span class="fact-value">කුසිනාරාව</span></div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🌿</span>
+            <div><span class="fact-label">රුක</span><span class="fact-value">සල් ගස් යුගලය</span></div>
+          </div>
+        </div>
+        <nav class="detail-nav">
+          <button class="detail-nav__btn" id="button13">
+            <span class="nav-dot"></span> උප්පත්තිය
+          </button>
+          <button class="detail-nav__btn" id="button14">
+            <span class="nav-dot"></span> බුදුවීම
+          </button>
+          <button class="detail-nav__btn active" id="button15">
+            <span class="nav-dot"></span> පිරිනිවීම
+          </button>
+          <button class="detail-nav__home" id="button18">
+            ← මුල් පිටු
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /app -->
+
+<!-- Page transition overlay -->
+<div class="page-transition-veil" id="veil"></div>
+
+<script src="code.js"></script>
+</body>
+</html>

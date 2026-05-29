@@ -1,0 +1,13 @@
+{
+  "name": "digital-vesak-zone",
+  "version": "1.0.0",
+  "description": "Digital Vesak Zone 2026",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node server.js",
+    "deploy": "gh-pages -d ."
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}

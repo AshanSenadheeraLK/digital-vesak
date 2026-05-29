@@ -1,0 +1,89 @@
+Created At: 2026-05-29T14:45:25Z
+Completed At: 2026-05-29T14:45:26Z
+File Path: `file:///e:/Experiments/HTML-CSS-JS/DigitalVesakZone/Digital%20Vesak%20Zone/code.js`
+Total Lines: 568
+Total Bytes: 20121
+Showing lines 1 to 568
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: /* ─────────────────────────────────────────────
+2:    DIGITAL VESAK ZONE 2026
+3:    Premium JavaScript — Router · Audio · Particles
+4:    ─────────────────────────────────────────────  */
+5: 
+6: 'use strict';
+7: 
+8: /* ════════════════════════════════════════════
+9:    1.  PARTICLE CANVAS  (stars + sparkles)
+10:    ════════════════════════════════════════════ */
+11: const ParticleSystem = (() => {
+12:   const canvas  = document.getElementById('particle-canvas');
+13:   const ctx     = canvas.getContext('2d');
+14:   let   W, H, particles = [], raf;
+15: 
+16:   function resize () {
+17:     W = canvas.width  = window.innerWidth;
+18:     H = canvas.height = window.innerHeight;
+19:   }
+20: 
+21:   function createParticle () {
+22:     const isGold = Math.random() < 0.25;
+23:     return {
+24:       x:     Math.random() * W,
+25:       y:     Math.random() * H,
+26:       r:     Math.random() * (isGold ? 1.8 : 1.2) + 0.3,
+27:       alpha: Math.random() * 0.7 + 0.1,
+28:       speed: Math.random() * 0.15 + 0.03,
+29:       drift: (Math.random() - 0.5) * 0.08,
+30:       phase: Math.random() * Math.PI * 2,
+31:       gold:  isGold,
+32:     };
+33:   }
+34: 
+35:   function init () {
+36:     resize();
+37:     particles = A
+<truncated 19305 bytes>
+-bezier(0.19,1,0.22,1), transform 0.55s ${i * 0.12}s cubic-bezier(0.19,1,0.22,1)`;
+527:       card.style.opacity   = '1';
+528:       card.style.transform = card.id === 'button2' ? 'translate(-50%, -50%) scale(1)' : 'translateY(-50%) scale(1)';
+529:       setTimeout(() => {
+530:         card.style.opacity = ''; card.style.transform = ''; card.style.transition = ''; card.style.animation = '';
+531:       }, 550 + (i * 120) + 100);
+532:     }, 80);
+533:   });
+534: }
+535: 
+536: 
+537: /* ════════════════════════════════════════════
+538:    9.  AUDIO TOGGLE
+539:    ════════════════════════════════════════════ */
+540: function initAudioToggle () {
+541:   const btn = document.getElementById('audio-toggle');
+542:   if (btn) btn.addEventListener('click', AudioManager.toggleMute);
+543: }
+544: 
+545: 
+546: /* ════════════════════════════════════════════
+547:    10. BOOT
+548:    ════════════════════════════════════════════ */
+549: document.addEventListener('DOMContentLoaded', () => {
+550:   ParticleSystem.init();
+551:   LanternSystem.start();
+552:   ThoranaSystem.init();
+553:   Router.init();
+554:   initAudioToggle();
+555:   initCardGlow();
+556:   initRipple();
+557: 
+558:   const dashScreen = document.querySelector('[data-screen="startscreen"]');
+559:   if (dashScreen) {
+560:     const mo = new MutationObserver(mutations => {
+561:       mutations.forEach(m => {
+562:         if (m.type === 'attributes' && dashScreen.classList.contains('active')) initStaggeredEntrance();
+563:       });
+564:     });
+565:     mo.observe(dashScreen, { attributes: true, attributeFilter: ['class'] });
+566:   }
+567: });
+568: 
+The above content shows the entire, complete file contents of the requested file.
