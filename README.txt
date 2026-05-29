@@ -1,5 +1,5 @@
 
-# README for Digital Vesak Zone #
+# README for Digital Vesak Zone 
 
 This is the README file for the Digital Vesak Zone app. It's a great place to write
 down some notes about how your app works. For starters, here is some information
